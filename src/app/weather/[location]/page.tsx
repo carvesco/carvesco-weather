@@ -1,7 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import overview from "../../components/overview";
+import ObservationCard from "../../components/observationCard";
 import Overview from "../../components/overview";
 const Page = () => {
   const params = useParams<{ location: string }>();
@@ -37,8 +37,11 @@ const Page = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen bg-background">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-background">
         <Overview data={weatherData} />
+        <div className="grid grid-cols-4 items-center w-3/4 gap-4">
+          <ObservationCard />
+        </div>
       </div>
     </>
   );
