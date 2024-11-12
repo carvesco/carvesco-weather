@@ -1,16 +1,17 @@
 "use client";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import overview from "../../components/overview";
+import Overview from "../../components/overview";
 const Page = () => {
   const params = useParams<{ location: string }>();
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(params);
   useEffect(() => {
     const fetchWeatherData = async () => {
       try {
         const response = await fetch(
-          `http://api.openweathermap.org/data/2.5/weather?q=${params.location}&APPID=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`
+          `http://api.openweathermap.org/data/2.5/weather?q=${params.location}&APPID=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&units=metric`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -36,7 +37,9 @@ const Page = () => {
 
   return (
     <>
-      <h1 className="text-5xl font-bold">CARVESCO WEATHER</h1>
+      <div className="flex items-center justify-center min-h-screen bg-background">
+        <Overview data={weatherData} />
+      </div>
     </>
   );
 };

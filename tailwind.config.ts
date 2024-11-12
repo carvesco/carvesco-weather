@@ -13,6 +13,7 @@ export default {
         foreground: "var(--foreground)",
         'second-backgorund': '#8fe0ff',
         'second-foreground': '#54416d',
+        'third-color':'#31255a'
       },
     },
   },
