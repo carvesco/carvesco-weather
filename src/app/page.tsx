@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 
 const Page = () => {
   const router = useRouter();
+  let location = "London";
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
       <div className="text-center">
@@ -19,7 +20,7 @@ const Page = () => {
         />
         <button
           className="block mx-auto mt-3 bg-second-foreground text-second-backgorund rounded p-2 px-6"
-          onClick={() => router.push("/weather")}
+          onClick={() => router.push(`/weather/${location}`)}
         >
           Search
         </button>
