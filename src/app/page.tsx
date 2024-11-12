@@ -1,4 +1,8 @@
+"use client";
+import { useRouter } from "next/navigation";
+
 const Page = () => {
+  const router = useRouter();
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
       <div className="text-center">
@@ -13,7 +17,10 @@ const Page = () => {
           className="border rounded p-2 w-full max-w-xs mx-auto block bg-second-background border-second-foreground mt-6"
           placeholder="Enter location"
         />
-        <button className="block mx-auto mt-3 bg-second-foreground text-second-backgorund rounded p-2 px-6">
+        <button
+          className="block mx-auto mt-3 bg-second-foreground text-second-backgorund rounded p-2 px-6"
+          onClick={() => router.push("/weather")}
+        >
           Search
         </button>
       </div>
