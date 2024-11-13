@@ -1,9 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import cities from "./cities";
 
 const Page = () => {
   const router = useRouter();
-  let location = "London";
+  const [location, setLocation] = useState("");
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
       <div className="text-center">
@@ -14,13 +18,31 @@ const Page = () => {
           Enter the place you want to know the current weather and we will show
           you.
         </p>
-        <input
-          className="border rounded p-2 w-full max-w-xs mx-auto block bg-second-background border-second-foreground mt-6"
-          placeholder="Enter location"
+        <Autocomplete
+          className="mx-auto"
+          disablePortal
+          freeSolo
+          value={location}
+          inputValue={location}
+          onInputChange={(event, newInputValue) => {
+            setLocation(newInputValue);
+          }}
+          options={cities}
+          sx={{ width: 300 }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Enter Location"
+              className=" border rounded w-full max-w-xs mx-auto block bg-second-background border-second-foreground mt-6"
+            />
+          )}
         />
         <button
-          className="block mx-auto mt-3 bg-second-foreground text-second-backgorund rounded p-2 px-6"
-          onClick={() => router.push(`/weather/${location}`)}
+          className="block mx-auto mt-3 bg-second-foreground text-second-background rounded p-2 px-6"
+          onClick={() => {
+            console.log(location);
+            router.push(`/weather/${location}`);
+          }}
         >
           Search
         </button>

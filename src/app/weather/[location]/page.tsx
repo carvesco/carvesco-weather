@@ -53,7 +53,6 @@ const Page = () => {
           .slice(-12, -7);
         data.sys.sunrise = sunrise;
         data.sys.sunset = sunset;
-        console.log(data);
         setWeatherData(data);
       } catch (error) {
         console.error("There was a problem with the fetch operation:", error);
