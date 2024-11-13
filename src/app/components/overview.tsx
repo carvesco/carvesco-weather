@@ -1,8 +1,16 @@
 import Image from "next/image";
 const Overview = ({ data }: any) => {
+  const timezoneOffset = data.timezone;
+  const Time = new Date((data.dt + data.timezone) * 1000)
+    .toUTCString()
+    .replace(" GMT", "");
   return (
     <div className="grid grid-flow-dense grid-cols-3 rounded-lg bg-second-foreground  p-4 w-1/2 text-second-background">
-      <h2 className="text-4xl col-span-3">{data.name} Weather</h2>
+      <div className="flex flex-row col-span-3 items-center">
+        <h2 className="text-4xl ">{data.name} Weather</h2>
+        <h2 className="text-2xl ml-auto text-background">{Time}</h2>
+      </div>
+
       <div className="flex flex-row items-center col-span-3 w-full gap-x-4">
         <Image
           className="
