@@ -62,13 +62,13 @@ const Page = () => {
   }
 
   return (
-    <>
+    <div className="w-screen animated-background h-screen bg-gradient-to-t from-blue-500 via-blue-500 to-indigo-500">
       {weatherData && (
         <>
           <button className="rounded-md bg-red-400 p-4 font-semibold text-second-background mt-10 ml-10">
             <Link href="/">Return</Link>
           </button>
-          <div className="flex flex-col items-center min-h-screen bg-background">
+          <div className="flex flex-col items-center  bg-gradient-to-t from-blue-500 via-blue-500 to-indigo-500">
             <Overview {...weatherData} />
             <h1 className="text-3xl mt-4 font-bold">Weather Observations</h1>
             <div className="grid grid-cols-4 items-center w-3/4 gap-4 mt-6">
@@ -140,7 +140,7 @@ const Page = () => {
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

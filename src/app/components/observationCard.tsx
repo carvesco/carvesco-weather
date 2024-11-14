@@ -12,7 +12,7 @@ export const ObservationCard = ({
   units,
 }: ObservationCardProps) => {
   return (
-    <div className="flex flex-row rounded-xl items-center gap-2 bg-gradient-to-t from-background to-second-background text-second-foreground p-5">
+    <div className="flex flex-row rounded-xl items-center gap-2 bg-gradient-to-t from-blue-500 to-second-background text-second-foreground p-5">
       {icon}
       <h2 className="text-xl  ">{title}:</h2>
       <h2 className="text-xl text-foreground font-semibold">{value}</h2>
@@ -35,7 +35,7 @@ export const ObservationCardMultiData = ({
   units,
 }: ObservationCardMultiDataProps) => {
   return (
-    <div className="flex flex-row rounded-xl items-center justify-center gap-2 bg-gradient-to-t from-background to-second-background text-second-foreground p-5">
+    <div className="flex flex-row rounded-xl items-center justify-center gap-2 bg-gradient-to-t from-blue-500 to-second-background text-second-foreground p-5">
       {icon}
       {title && <h2 className="text-xl  ">{title}:</h2>}
       <div className="flex flex-col items-end">

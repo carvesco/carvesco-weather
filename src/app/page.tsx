@@ -10,7 +10,7 @@ const Page = () => {
   const [location, setLocation] = useState("");
   const [loading, setLoading] = useState(false);
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 via-blue-500 to-indigo-500">
       <div className="text-center">
         <h1 className="text-5xl font-bold">CARVESCO WEATHER</h1>
         <p className="text-lg mt-4">
