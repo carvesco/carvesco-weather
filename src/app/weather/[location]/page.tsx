@@ -12,25 +12,10 @@ import { MdVisibility } from "react-icons/md";
 import { FaCloud } from "react-icons/fa";
 import { FaWind } from "react-icons/fa";
 import { TbSunset2 } from "react-icons/tb";
+import Link from "next/link";
+import { WeatherData } from "@/app/types/interfaces";
 const Page = () => {
   const params = useParams<{ location: string }>();
-  interface WeatherData {
-    clouds: { all: number };
-    main: {
-      pressure: number;
-      humidity: number;
-    };
-    visibility: number;
-    wind: {
-      speed: number;
-      deg: number;
-    };
-    sys: {
-      sunrise: number;
-      sunset: number;
-    };
-    timezone: number;
-  }
 
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -49,6 +34,7 @@ const Page = () => {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
+        console.log(data);
         // Convert sunrise and sunset timestamps to local time
         const sunrise = new Date((data.sys.sunrise + data.timezone) * 1000)
           .toUTCString()
@@ -80,10 +66,10 @@ const Page = () => {
       {weatherData && (
         <>
           <button className="rounded-md bg-red-400 p-4 font-semibold text-second-background mt-10 ml-10">
-            <a href="/">Return</a>
+            <Link href="/">Return</Link>
           </button>
           <div className="flex flex-col items-center min-h-screen bg-background">
-            <Overview data={weatherData} />
+            <Overview {...weatherData} />
             <h1 className="text-3xl mt-4 font-bold">Weather Observations</h1>
             <div className="grid grid-cols-4 items-center w-3/4 gap-4 mt-6">
               {weatherData?.main?.pressure && (
@@ -123,7 +109,10 @@ const Page = () => {
               {weatherData?.wind && (
                 <ObservationCardMultiData
                   title={"Wind"}
-                  value={weatherData?.wind}
+                  value={{
+                    speed: weatherData?.wind.speed,
+                    deg: weatherData?.wind.deg,
+                  }}
                   units={{ speed: "m/s", deg: "°" }}
                   icon={<FaWind style={{ height: 50, width: 50 }} />}
                 />

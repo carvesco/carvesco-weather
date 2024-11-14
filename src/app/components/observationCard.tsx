@@ -23,9 +23,9 @@ export const ObservationCard = ({
 
 interface ObservationCardMultiDataProps {
   title?: string;
-  value?: Record<string, any>;
+  value?: Record<string, string | number> | null;
   icon?: React.ReactNode;
-  units?: Record<string, any>;
+  units?: Record<string, string>;
 }
 
 export const ObservationCardMultiData = ({

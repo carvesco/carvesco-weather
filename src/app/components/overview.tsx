@@ -1,6 +1,6 @@
 import Image from "next/image";
-const Overview = ({ data }: any) => {
-  const timezoneOffset = data.timezone;
+import { WeatherData } from "@/app/types/interfaces";
+const Overview = (data: WeatherData) => {
   const Time = new Date((data.dt + data.timezone) * 1000)
     .toUTCString()
     .replace(" GMT", "");
