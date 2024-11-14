@@ -16,7 +16,7 @@ npm install
 create an .env file in the root, here comes ur enviroment variables:
 
 ```
-NEXT_PUBLIC_WEATHER_API_KEY = 76af671c556c640c6177ea6806764901
+NEXT_PUBLIC_WEATHER_API_KEY = YOUR_API_KEY
 ```
 
 ## Getting Started
