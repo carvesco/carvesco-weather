@@ -136,7 +136,7 @@ const Page = () => {
             City not found. Please try again.
           </h1>
           <button className="rounded-md bg-red-400 p-4 font-semibold text-second-background mt-10">
-            <a href="/">Return</a>
+            <Link href="/">Return</Link>
           </button>
         </div>
       )}
