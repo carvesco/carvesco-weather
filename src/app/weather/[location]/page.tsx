@@ -24,7 +24,7 @@ const Page = () => {
     const fetchWeatherData = async () => {
       try {
         const response = await fetch(
-          `http://api.openweathermap.org/data/2.5/weather?q=${params.location}&APPID=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?q=${params.location}&APPID=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&units=metric`
         );
         if (!response.ok) {
           if (response.status === 404) {
